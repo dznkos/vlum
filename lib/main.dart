@@ -1,5 +1,6 @@
 import 'package:dart2000/widgets/circle.dart';
-import 'package:dart2000/widgets/crearEmail.dart';
+import 'package:dart2000/widgets/fondo.dart';
+import 'package:dart2000/widgets/login.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -8,69 +9,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    //final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-        backgroundColor: Colors.tealAccent,
-        body: Column(
-          children: [
-            Container(
-              width: size.width,
-              height: size.height,
-              child: Stack(
-                children: <Widget>[
-                    Circle(
-                      radius: 100,
-                      colors: [
-                        Colors.blueAccent,
-                        Colors.white30,
-                      ],
-                    ),
-                ],
-              ), 
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 80),
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Image(
-                image: AssetImage('assets/logo.png'),
-                width: 160,
-                height: 160,
+    return MaterialApp(
+            home: Scaffold(
+              backgroundColor: Colors.tealAccent,
+              body: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                                  begin: Alignment.topRight,
+                                  end: Alignment.bottomLeft, 
+                                  colors: [
+                                      Colors.yellowAccent,
+                                      Colors.blue,
+                                    ]
+                                  ),
+                      ),
+                      child: MyHomePage(),
+                    ),         
               ),
-            ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),
-                children: <Widget>[
-                  Container(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        child: Text(
-                          'Vlum',
-                          style: TextStyle(
-                            color: Colors.red,
-                            fontFamily: 'PermanentMarker',
-                            fontSize: 55,
-                          ),
-                        ),
-                      )
-                    ],
-                  )),
-                  //_crearInput(),
-                  Divider(),
-                  InputText(
-                      label: 'usuario',
-                      hint: 'ingrese usuario',
-                      helper: 'Solo se aceptan letras'),
-                  Divider(),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );  
+           );  
   }
 
   Widget _crearInput() {
@@ -142,3 +100,69 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+ class MyHomePage extends StatefulWidget {
+    @override
+    _MyHomePageState createState() => _MyHomePageState();
+  }
+  
+  class _MyHomePageState extends State<MyHomePage> {
+    @override
+    Widget build(BuildContext context) {
+
+      final size = MediaQuery.of(context).size;
+
+      return Scaffold(
+        resizeToAvoidBottomPadding: false,
+        backgroundColor: Colors.white10,
+        body: Stack(
+          children: <Widget>[
+            Container(
+              width: size.width,
+              height: size.height,
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    left: -size.width * 0.15,
+                    top: -size.width * 0.25,
+                    child: Circle(
+                            radius: 120,
+                            colors: [
+                              Colors.red,
+                              Colors.purpleAccent,
+                            ],
+                           ),
+                  ),
+                  Positioned(
+                    right: size.width * 0.12,
+                    bottom: -size.width * 0.75,
+                    child: Circle(
+                            radius: 220,
+                            colors: [
+                              Colors.teal,
+                              Colors.red,
+                            ],
+                           ),
+                  ),
+                  Positioned(
+                    right: -size.width * 0.55,
+                    top: -size.width * 0.15,
+                    child: Circle(
+                            radius: 160,
+                            colors: [
+                              Colors.blue,
+                              Colors.purpleAccent,
+                            ],
+                           ),
+                  ), 
+                ] 
+              )
+                
+            ),
+            LoginPage(),
+          ],
+        ));
+    }
+  }
+

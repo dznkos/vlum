@@ -10,8 +10,8 @@ class Circle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: radius * 3,
-        height: radius * 3,
+        width: radius * 2,
+        height: radius * 2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(this.radius),
           gradient: LinearGradient(
