@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          'Vlum',
+                          'Matices',
                           style: TextStyle(
                             color: Colors.red,
                             fontFamily: 'PermanentMarker',
@@ -41,12 +41,16 @@ class LoginPage extends StatelessWidget {
                   InputText(
                       label: 'usuario',
                       hint: 'ingrese usuario',
-                      helper: 'Solo se aceptan letras'),
+                      helper: 'Solo se aceptan letras',
+                      icon: 'usu',
+                      ),
                   Divider(),
                   InputText(
                       label: 'contraseña',
                       hint: 'contraseña',
-                      helper: 'No se aceptan simbolos'),
+                      helper: 'No se aceptan simbolos',
+                      icon: 'pas',
+                      ),
                   Divider(),
                   Column(
                     children: [                    

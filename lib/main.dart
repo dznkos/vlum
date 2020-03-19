@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
                                       Colors.yellowAccent,
                                       Colors.blue,
                                     ]
-                                  ),
+                                  )
+                                  
+                                  ,
                       ),
                       child: MyHomePage(),
                     ),         
@@ -123,7 +125,7 @@ class MyApp extends StatelessWidget {
               height: size.height,
               child: Stack(
                 children: <Widget>[
-                  Positioned(
+                  /*Positioned(
                     left: -size.width * 0.15,
                     top: -size.width * 0.25,
                     child: Circle(
@@ -133,7 +135,7 @@ class MyApp extends StatelessWidget {
                               Colors.purpleAccent,
                             ],
                            ),
-                  ),
+                  ),*/
                   Positioned(
                     right: size.width * 0.12,
                     bottom: -size.width * 0.75,
